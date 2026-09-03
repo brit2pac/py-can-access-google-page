@@ -5,7 +5,7 @@ from app import main
 
 @mock.patch("app.main.valid_google_url")
 @mock.patch("app.main.has_internet_connection")
-def test_can_google_access(
+def test_valid_url_and_connection_exists(
     mock_internet: mock.Mock, mock_url: mock.Mock
 ) -> None:
     mock_internet.return_value = True
@@ -18,7 +18,7 @@ def test_can_google_access(
 
 @mock.patch("app.main.valid_google_url")
 @mock.patch("app.main.has_internet_connection")
-def test_google_url_is_invalid(
+def test_invalid_url_and_connection_exists(
     mock_internet: mock.Mock, mock_url: mock.Mock
 ) -> None:
     mock_internet.return_value = True
@@ -31,7 +31,7 @@ def test_google_url_is_invalid(
 
 @mock.patch("app.main.valid_google_url")
 @mock.patch("app.main.has_internet_connection")
-def test_no_internet_connection(
+def test_valid_url_and_no_connection(
     mock_internet: mock.Mock, mock_url: mock.Mock
 ) -> None:
     mock_internet.return_value = False
@@ -44,7 +44,7 @@ def test_no_internet_connection(
 
 @mock.patch("app.main.valid_google_url")
 @mock.patch("app.main.has_internet_connection")
-def test_no_internet_and_invalid_url(
+def test_invalid_url_and_no_connection(
     mock_internet: mock.Mock, mock_url: mock.Mock
 ) -> None:
     mock_internet.return_value = False
